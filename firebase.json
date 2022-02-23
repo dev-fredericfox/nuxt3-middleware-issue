@@ -1,11 +1,16 @@
 {
   "functions": { "source": ".output/server" },
-  "hosting": [
+  "hosting":
     {
       "site": "nuxt3-middleware-issue",
       "public": ".output/public",
       "cleanUrls": true,
       "rewrites": [{ "source": "**", "function": "server" }]
+    },
+  "emulators": {
+    "hosting": {
+      "host": "LOCALHOST",
+      "port": "9000"
     }
-  ]
+  }
 }
