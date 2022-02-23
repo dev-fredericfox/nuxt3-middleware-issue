@@ -4,7 +4,7 @@ import { useCookie } from "h3";
 
 export default async (req: IncomingMessage, res: ServerResponse, next) => {
   if (req.url.includes("/api/privateEndpoint")) {
-    const path = useCookie(req, "path");
+    const path = useCookie(req, "__session");
     const cookieSecure = useCookie(req, "secureTrue");
     const cookieDomain = useCookie(req, "domain");
     const cookiehttpOnly = useCookie(req, "httpOnlyTrue");

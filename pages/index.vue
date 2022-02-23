@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const cookie = useCookie("path", { path: "/" });
+const cookie = useCookie("__session");
 const secureTrue = useCookie("secureTrue", { secure: true });
 const cookieDomain = useCookie("domain", { domain: ".web.app" });
 const httpOnlyTrue = useCookie("httpOnlyTrue", { httpOnly: true });
@@ -18,7 +18,7 @@ const secureTsameSiteTpathMaxAge3600 = useCookie("allinone2", {
   maxAge: 3600,
 });
 const set = () => {
-  cookie.value = "path: '/'";
+  cookie.value = "__session is the only allowed firebase hosting cookie.";
   secureTrue.value = "secure: True";
   cookieDomain.value = "domain .web.app";
   httpOnlyTrue.value = "'httpOnly true'";
@@ -51,7 +51,7 @@ const { data: privateEndpoint } = await useFetch("/api/privateEndpoint", {
     <h1>Page One</h1>
     <button @click="set">Set Cookies</button>
     <button @click="remove">Remove Cookies</button>
-    <p><b>Path:</b> {{ cookie }}</p>
+    <p><b>Session Cookie:</b> {{ cookie }}</p>
     <p><b>secureTrue</b>: {{ secureTrue }}</p>
     <p><b>httpOnlyTrue</b>: {{ httpOnlyTrue }}</p>
     <p><b>SameSiteTrue</b>: {{ sameSiteStrict }}</p>
